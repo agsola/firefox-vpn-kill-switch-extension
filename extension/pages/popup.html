@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <style>
-    body { width: 320px; background: var(--paper); }
-    @media (max-width: 600px) { body { width: auto; } }
+    /* Fixed width: Firefox sizes the panel from the content, and a width that
+       depends on the viewport makes it grow depending on where it opens. */
+    html, body { width: 320px; }
+    body { background: var(--paper); }
+    /* On Android the popup opens as a full page. */
+    html.android, html.android body { width: auto; }
 
     .head {
       display: flex; align-items: center; gap: 14px;

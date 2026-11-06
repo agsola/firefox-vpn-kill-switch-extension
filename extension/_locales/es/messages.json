@@ -1,9 +1,9 @@
 {
-  "extName": { "message": "Kill Switch for Firefox VPN" },
+  "extName": { "message": "VPN Kill Switch for Firefox" },
   "extDescription": { "message": "Bloquea todo el tráfico que no pase por la VPN integrada de Firefox, para que tu IP real no se filtre si la VPN se apaga." },
 
-  "actionTitleOn": { "message": "Kill Switch for Firefox VPN: activado" },
-  "actionTitleOff": { "message": "Kill Switch for Firefox VPN: desactivado" },
+  "actionTitleOn": { "message": "VPN Kill Switch for Firefox: activado" },
+  "actionTitleOff": { "message": "VPN Kill Switch for Firefox: desactivado" },
 
   "toggleLabel": { "message": "Kill switch" },
   "stateOn": { "message": "Protegido" },
@@ -16,7 +16,7 @@
   "vpnHours": { "message": "En uso hace $N$ h", "placeholders": { "n": { "content": "$1" } } },
   "offNote": { "message": "Las páginas pueden cargar sin VPN y mostrar tu IP real." },
   "privateTitle": { "message": "Las ventanas privadas no están protegidas." },
-  "privateBody": { "message": "Ve a Complementos → Kill Switch for Firefox VPN y activa «Ejecutar en ventanas privadas»." },
+  "privateBody": { "message": "Ve a Complementos → VPN Kill Switch for Firefox y activa «Ejecutar en ventanas privadas»." },
 
   "blockedTitle": { "message": "Bloqueado: $HOST$", "placeholders": { "host": { "content": "$1" } } },
   "blockedHeading": { "message": "Página bloqueada: la VPN no está activa" },
@@ -28,13 +28,13 @@
   "blockedStep2Body": { "message": "Si la VPN ya estaba activada y sigue bloqueando, apágala y enciéndela una vez." },
   "retry": { "message": "Reintentar" },
 
-  "welcomeTitle": { "message": "Kill Switch for Firefox VPN" },
+  "welcomeTitle": { "message": "VPN Kill Switch for Firefox" },
   "welcomeArt": { "message": "El tráfico del navegador pasa por la VPN antes de llegar a internet" },
   "welcomeHeading": { "message": "Firefox solo navegará a través de su VPN" },
   "welcomeLead": { "message": "Si la VPN se apaga, se pausa o falla, las páginas no cargan en lugar de salir con tu IP real." },
   "welcomeStep1Title": { "message": "Apaga y enciende la VPN una vez" },
   "welcomeStep1Body": { "message": "Solo si ya estaba encendida al instalar la extensión. Así la VPN queda por delante del kill switch." },
   "welcomeStep2Title": { "message": "Permite la extensión en ventanas privadas" },
-  "welcomeStep2Body": { "message": "Ve a Complementos → Kill Switch for Firefox VPN y activa «Ejecutar en ventanas privadas». Sin este permiso, las ventanas privadas no están protegidas." },
+  "welcomeStep2Body": { "message": "Ve a Complementos → VPN Kill Switch for Firefox y activa «Ejecutar en ventanas privadas». Sin este permiso, las ventanas privadas no están protegidas." },
   "welcomeNote": { "message": "Para desactivarlo, abre el botón de la extensión y pulsa el interruptor. La red local y los servicios que la VPN necesita para conectarse (cuentas de Mozilla, vpn.mozilla.org y DNS cifrado) nunca se bloquean." }
 }

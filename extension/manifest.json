@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extName__",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "__MSG_extDescription__",
   "author": "Alberto García",
   "homepage_url": "https://github.com/agsola/firefox-vpn-kill-switch-extension",
@@ -33,7 +33,7 @@
   "incognito": "spanning",
   "browser_specific_settings": {
     "gecko": {
-      "id": "vpn-kill-switch@archivados.com",
+      "id": "{9641b30d-7263-4f1b-8158-07ecd0697333}",
       "strict_min_version": "149.0",
       "data_collection_permissions": {
         "required": [

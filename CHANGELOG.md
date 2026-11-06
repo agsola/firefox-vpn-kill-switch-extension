@@ -1,8 +1,17 @@
 # Changelog
 
-## 0.1.0 (unreleased)
+## 0.2.0 (2026-11-06)
 
-First release.
+First public release.
+
+- New name: VPN Kill Switch for Firefox.
+- New toggle-switch icon that shows whether the kill switch is on or off.
+- English and Spanish.
+- Fixed: the popup could open much wider than its content, depending on where the toolbar button was clicked.
+
+## 0.1.0
+
+Internal preview.
 
 - Blocks every request that doesn't go through Firefox's built-in VPN, before any DNS lookup.
 - Turns off WebRTC traffic outside the proxy and DNS prefetching while on.

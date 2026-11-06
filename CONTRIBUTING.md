@@ -27,7 +27,7 @@ docs/                 technical notes, store listing, screenshots
 
 1. Copy `extension/_locales/en/messages.json` to `extension/_locales/<code>/messages.json` (for example `fr`, `pt_BR`).
 2. Translate each `message`. Keep keys and `$PLACEHOLDERS$` unchanged.
-3. Keep the extension name, "Kill Switch for Firefox VPN", in English.
+3. Keep the extension name, "VPN Kill Switch for Firefox", in English.
 4. Use Firefox's own wording for its menus and settings in your language (for example "Run in Private Windows").
 
 ## Releasing

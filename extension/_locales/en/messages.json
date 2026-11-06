@@ -1,9 +1,9 @@
 {
-  "extName": { "message": "Kill Switch for Firefox VPN" },
+  "extName": { "message": "VPN Kill Switch for Firefox" },
   "extDescription": { "message": "Blocks all traffic that doesn't go through Firefox's built-in VPN, so your real IP doesn't leak if the VPN turns off." },
 
-  "actionTitleOn": { "message": "Kill Switch for Firefox VPN: on" },
-  "actionTitleOff": { "message": "Kill Switch for Firefox VPN: off" },
+  "actionTitleOn": { "message": "VPN Kill Switch for Firefox: on" },
+  "actionTitleOff": { "message": "VPN Kill Switch for Firefox: off" },
 
   "toggleLabel": { "message": "Kill switch" },
   "stateOn": { "message": "Protected" },
@@ -16,7 +16,7 @@
   "vpnHours": { "message": "Used $N$ h ago", "placeholders": { "n": { "content": "$1" } } },
   "offNote": { "message": "Pages can load without the VPN and reveal your real IP." },
   "privateTitle": { "message": "Private windows aren't protected." },
-  "privateBody": { "message": "Go to Add-ons → Kill Switch for Firefox VPN and turn on “Run in Private Windows”." },
+  "privateBody": { "message": "Go to Add-ons → VPN Kill Switch for Firefox and turn on “Run in Private Windows”." },
 
   "blockedTitle": { "message": "Blocked: $HOST$", "placeholders": { "host": { "content": "$1" } } },
   "blockedHeading": { "message": "Page blocked: the VPN isn't on" },
@@ -28,13 +28,13 @@
   "blockedStep2Body": { "message": "If the VPN was already on and pages are still blocked, turn it off and on once." },
   "retry": { "message": "Try again" },
 
-  "welcomeTitle": { "message": "Kill Switch for Firefox VPN" },
+  "welcomeTitle": { "message": "VPN Kill Switch for Firefox" },
   "welcomeArt": { "message": "Browser traffic goes through the VPN before reaching the internet" },
   "welcomeHeading": { "message": "Firefox now browses only through its VPN" },
   "welcomeLead": { "message": "If the VPN turns off, pauses or fails, pages won't load instead of going out with your real IP." },
   "welcomeStep1Title": { "message": "Turn the VPN off and on once" },
   "welcomeStep1Body": { "message": "Only if it was already on when you installed the extension. This puts the VPN ahead of the kill switch." },
   "welcomeStep2Title": { "message": "Allow the extension in private windows" },
-  "welcomeStep2Body": { "message": "Go to Add-ons → Kill Switch for Firefox VPN and turn on “Run in Private Windows”. Without it, private windows aren't protected." },
+  "welcomeStep2Body": { "message": "Go to Add-ons → VPN Kill Switch for Firefox and turn on “Run in Private Windows”. Without it, private windows aren't protected." },
   "welcomeNote": { "message": "To turn it off, open the extension's button and use the switch. Your local network and the services the VPN needs to connect (Mozilla accounts, vpn.mozilla.org and encrypted DNS) are never blocked." }
 }

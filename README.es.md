@@ -2,7 +2,7 @@
   <img src="extension/icons/icon-128.png" width="96" height="96" alt="">
 </p>
 
-<h1 align="center">Kill Switch for Firefox VPN</h1>
+<h1 align="center">VPN Kill Switch for Firefox</h1>
 
 <p align="center">
   Bloquea toda página que no pase por la VPN integrada de Firefox, para que tu IP real no se filtre cuando la VPN se apaga.<br>
@@ -34,13 +34,14 @@ Esta extensión es un kill switch: con ella activada, las páginas solo cargan a
 
 ## Instalación
 
+- **GitHub (firmada por Mozilla):** descarga el `.xpi` de la [última versión](https://github.com/agsola/firefox-vpn-kill-switch-extension/releases/latest) y ábrelo con Firefox. En Android, ábrelo desde las descargas de Firefox.
 - **Complementos de Firefox:** próximamente.
 - **Desde el código (temporal, para pruebas):** abre `about:debugging#/runtime/this-firefox`, pulsa **Cargar complemento temporal…** y elige `extension/manifest.json`. Firefox la quita al reiniciarse.
 
 Después de instalarla:
 
 1. **Si la VPN ya estaba encendida, apágala y enciéndela una vez.** Así la VPN queda por delante del kill switch (ver [limitaciones](#limitaciones)).
-2. **Permite la extensión en ventanas privadas:** Complementos → Kill Switch for Firefox VPN → **Ejecutar en ventanas privadas**. Sin ese permiso, las ventanas privadas no están protegidas. El popup avisa si falta.
+2. **Permite la extensión en ventanas privadas:** Complementos → VPN Kill Switch for Firefox → **Ejecutar en ventanas privadas**. Sin ese permiso, las ventanas privadas no están protegidas. El popup avisa si falta.
 
 ## Cómo funciona
 

@@ -2,7 +2,7 @@
 
 *Last updated: November 6, 2026*
 
-Kill Switch for Firefox VPN doesn't collect, store, sell or send any personal data or usage data. It has no analytics, no telemetry and no remote servers.
+VPN Kill Switch for Firefox doesn't collect, store, sell or send any personal data or usage data. It has no analytics, no telemetry and no remote servers.
 
 ## What it stores on your device
 
@@ -29,7 +29,7 @@ Questions: open an issue at https://github.com/agsola/firefox-vpn-kill-switch-ex
 
 *Última actualización: 6 de noviembre de 2026*
 
-Kill Switch for Firefox VPN no recoge, guarda, vende ni envía ningún dato personal ni de uso. No tiene analíticas, telemetría ni servidores remotos.
+VPN Kill Switch for Firefox no recoge, guarda, vende ni envía ningún dato personal ni de uso. No tiene analíticas, telemetría ni servidores remotos.
 
 ## Qué guarda en tu dispositivo
 

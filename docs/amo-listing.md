@@ -6,8 +6,8 @@ Texts to paste when submitting or updating the listing. English is the default l
 
 | Field | Value |
 |---|---|
-| Name | Kill Switch for Firefox VPN |
-| Add-on URL slug | `kill-switch-for-firefox-vpn` |
+| Name | VPN Kill Switch for Firefox |
+| Add-on URL slug | `vpn-kill-switch-for-firefox` |
 | Categories | Privacy & Security |
 | Platforms | Firefox, Firefox for Android |
 | Tags | vpn, kill switch, privacy, ip leak, proxy |
@@ -38,7 +38,7 @@ This extension is a kill switch: while it's on, pages load only through the VPN.
 
 <b>After installing</b>
 1. If the VPN was already on, turn it off and on once.
-2. Allow the extension in private windows (Add-ons → Kill Switch for Firefox VPN → Run in Private Windows). Without it, private windows aren't protected.
+2. Allow the extension in private windows (Add-ons → VPN Kill Switch for Firefox → Run in Private Windows). Without it, private windows aren't protected.
 
 <b>Privacy</b>
 No data collection, no analytics, no remote code. Open source: https://github.com/agsola/firefox-vpn-kill-switch-extension
@@ -66,7 +66,7 @@ Esta extensión es un kill switch: mientras está activada, las páginas solo ca
 
 <b>Después de instalarla</b>
 1. Si la VPN ya estaba encendida, apágala y enciéndela una vez.
-2. Permite la extensión en ventanas privadas (Complementos → Kill Switch for Firefox VPN → Ejecutar en ventanas privadas). Sin ese permiso, las ventanas privadas no están protegidas.
+2. Permite la extensión en ventanas privadas (Complementos → VPN Kill Switch for Firefox → Ejecutar en ventanas privadas). Sin ese permiso, las ventanas privadas no están protegidas.
 
 <b>Privacidad</b>
 No recoge datos, no tiene analíticas ni carga código remoto. Código abierto: https://github.com/agsola/firefox-vpn-kill-switch-extension

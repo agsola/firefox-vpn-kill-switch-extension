@@ -1,7 +1,7 @@
 "use strict";
 
 /*
- * Kill Switch for Firefox VPN.
+ * VPN Kill Switch for Firefox.
  *
  * How it works:
  * Firefox's built-in VPN ("IP Protection") is a Gecko proxy channel filter

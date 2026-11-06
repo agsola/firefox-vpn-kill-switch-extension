@@ -36,4 +36,7 @@ $("toggle").addEventListener("click", async () => {
   render(await browser.runtime.sendMessage({ type: "get" }));
 });
 
+browser.runtime.getPlatformInfo().then(({ os }) => {
+  document.documentElement.classList.toggle("android", os === "android");
+});
 browser.runtime.sendMessage({ type: "get" }).then(render);

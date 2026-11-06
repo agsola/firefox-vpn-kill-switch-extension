@@ -1,6 +1,6 @@
 {
   "name": "firefox-vpn-kill-switch-extension",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Blocks all traffic that doesn't go through Firefox's built-in VPN.",
   "license": "MIT",
