@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extName__",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "__MSG_extDescription__",
   "author": "Alberto García",
   "homepage_url": "https://github.com/agsola/firefox-vpn-kill-switch-extension",
@@ -15,7 +15,6 @@
     "proxy",
     "privacy",
     "storage",
-    "tabs",
     "webRequest",
     "<all_urls>"
   ],

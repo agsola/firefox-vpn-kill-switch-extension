@@ -18,6 +18,13 @@
       margin: 0 0 4px;
     }
     .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .notice {
+      background: var(--amber-soft);
+      color: var(--amber);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 20px 0 0;
+    }
   </style>
 </head>
 <body>
@@ -54,6 +61,8 @@
     <h1 data-i18n="blockedHeading"></h1>
     <p class="host" id="host"></p>
     <p class="lead" data-i18n="blockedLead"></p>
+
+    <p class="notice" id="reordered" hidden><strong data-i18n="reorderedTitle"></strong> <span data-i18n="reorderedBody"></span></p>
 
     <ol class="steps">
       <li><strong data-i18n="blockedStep1Title"></strong><span data-i18n="blockedStep1Body"></span></li>

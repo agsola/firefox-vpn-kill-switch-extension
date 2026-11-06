@@ -53,6 +53,10 @@ const state = {
   enabled: true,
   blocked: 0,
   vpnSeenAt: 0,
+  // Set after an install or update until VPN traffic is seen. If the VPN was
+  // already on, its filter now runs before ours and everything is blocked
+  // until the VPN restarts; the blocked page then says so first.
+  reordered: false,
 };
 
 const ready = browser.storage.local.get({ enabled: true }).then((stored) => {
@@ -80,22 +84,25 @@ function isLocalHost(host) {
     (a === 172 && b >= 16 && b <= 31) || (a === 169 && b === 254);
 }
 
-function decide(url) {
+function decide(details) {
   if (!state.enabled) return null; // no opinion: Firefox decides
-  let host;
+  let url;
   try {
-    host = new URL(url).hostname;
+    url = new URL(details.url);
   } catch {
     return BLOCK;
   }
-  if (INFRA_HOSTS.has(host) || isLocalHost(host)) return null;
+  if (INFRA_HOSTS.has(url.hostname) || isLocalHost(url.hostname)) return null;
+  // Firefox keeps every DNS-over-HTTPS request out of the VPN, including
+  // custom providers. Those are internal requests (no tab) to /dns-query.
+  if (details.tabId === -1 && url.pathname.startsWith("/dns-query")) return null;
   return BLOCK;
 }
 
 // Registered synchronously at load so Firefox holds startup requests until the
 // extension is ready (fail closed).
 browser.proxy.onRequest.addListener(
-  (details) => (loaded ? decide(details.url) : ready.then(() => decide(details.url))),
+  (details) => (loaded ? decide(details) : ready.then(() => decide(details))),
   { urls: ["<all_urls>"] }
 );
 
@@ -114,6 +121,7 @@ browser.webRequest.onHeadersReceived.addListener(
   (d) => {
     if (d.proxyInfo && !isBlackhole(d.proxyInfo)) {
       state.vpnSeenAt = Date.now();
+      state.reordered = false;
     }
   },
   { urls: ["<all_urls>"], types: ["main_frame"] }
@@ -121,12 +129,14 @@ browser.webRequest.onHeadersReceived.addListener(
 
 browser.webRequest.onErrorOccurred.addListener(
   (d) => {
-    if (!isBlackhole(d.proxyInfo)) return;
+    // Only count requests from tabs: Firefox's own background requests would
+    // make the number grow even when you aren't browsing.
+    if (!isBlackhole(d.proxyInfo) || d.tabId < 0) return;
     state.blocked++;
     updateBadge();
-    if (d.type === "main_frame" && d.tabId >= 0) {
+    if (d.type === "main_frame") {
       const page = browser.runtime.getURL("pages/blocked.html") +
-        "?u=" + encodeURIComponent(d.url);
+        "?u=" + encodeURIComponent(d.url) + (state.reordered ? "&r=1" : "");
       browser.tabs.update(d.tabId, { url: page }).catch(() => {});
     }
   },
@@ -199,6 +209,7 @@ browser.runtime.onMessage.addListener(async (msg) => {
 });
 
 browser.runtime.onInstalled.addListener(({ reason }) => {
+  if (reason === "install" || reason === "update") state.reordered = true;
   if (reason === "install") {
     browser.tabs.create({ url: browser.runtime.getURL("pages/welcome.html") });
   }

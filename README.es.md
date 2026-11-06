@@ -54,7 +54,7 @@ El análisis completo, con referencias al código fuente de Firefox, está en [d
 ## Limitaciones
 
 - **Ventanas privadas:** solo están protegidas si permites la extensión en ellas.
-- **Instalada o actualizada con la VPN encendida:** el filtro de la VPN queda antes que el de la extensión, y se bloquean todas las páginas hasta que apagas y enciendes la VPN una vez. Nunca hay fuga: falla cerrado.
+- **Instalada o actualizada con la VPN encendida** (también en las actualizaciones automáticas): el filtro de la VPN queda antes que el de la extensión, y se bloquean todas las páginas hasta que apagas y enciendes la VPN una vez. Nunca hay fuga: falla cerrado, y la página de bloqueo te dice qué hacer.
 - **Las peticiones internas de Firefox** (actualizaciones, ajustes remotos) pueden pasar a conexión directa si su proxy falla. Tu navegación no se ve afectada.
 - No cambies `network.proxy.retry_failed_proxies` a `false` en `about:config`.
 
@@ -70,7 +70,7 @@ npm run lint
 npm run build          # zip para addons.mozilla.org, se guarda en web-ext-artifacts/
 ```
 
-Las pruebas de extremo a extremo usan un Firefox real sin interfaz. Una extensión que simula la VPN manda el tráfico a un proxy local, y las pruebas comprueban seis casos: VPN encendida, VPN que se cae, orden de filtros incorrecto y un archivo PAC con `DIRECT` de respaldo.
+Las pruebas de extremo a extremo usan un Firefox real sin interfaz. Una extensión que simula la VPN manda el tráfico a un proxy local, y las pruebas comprueban siete casos: VPN encendida, VPN que se cae, orden de filtros incorrecto y su solución, y un archivo PAC con `DIRECT` de respaldo.
 
 ```sh
 python3 -m venv .venv && .venv/bin/pip install -r tests/requirements.txt

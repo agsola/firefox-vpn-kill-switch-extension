@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0 (2026-11-06)
+
+First version on addons.mozilla.org.
+
+- No longer asks for access to browser tabs: it was never needed.
+- After an install or update, the blocked page explains that the VPN must be turned off and on once if it was already on.
+- The blocked counter only counts requests from tabs, not Firefox's own background requests.
+- Custom DNS-over-HTTPS providers keep working while the VPN is on, as Firefox keeps them out of the VPN.
+
 ## 0.2.0 (2026-11-06)
 
 First public release.

@@ -33,12 +33,20 @@ For every request, the extension returns `[{type: "http", host: "127.0.0.1", por
 - **The trailing `null` ends the failover chain.** Without it, `ProxyChannelFilter.createProxyInfoFromData` appends the *default* proxy as failover. With a PAC file or system proxy, that default can be `DIRECT`, so a refused black hole would fail over to a direct connection. This leak is reproduced in `tests/e2e.py` (case 6).
 - **A failed proxy isn't skipped.** When every non-direct proxy in a list has failed, `nsProtocolProxyService::PruneProxyInfo` keeps them if `network.proxy.retry_failed_proxies` is `true` (the default), instead of falling back to direct.
 
+## What is never blocked
+
+The same traffic Firefox keeps out of the VPN:
+
+- **The VPN's own services:** `vpn.mozilla.org`, Firefox accounts, remote settings (the VPN server list) and captive portal detection.
+- **DNS over HTTPS:** the known Firefox resolvers, plus any internal request (one with no tab) to a `/dns-query` path, so custom DoH providers keep working.
+- **Your local network:** `localhost`, `.local`, and private IP ranges.
+
 ## Filter order
 
 Filters registered with the same position run in insertion order (`nsProtocolProxyService::InsertFilterLink`). The extension's filter and the VPN's filter both use position 0:
 
 - **Extension registered first (the normal case).** The VPN's filter runs second. When the VPN proxies a request, it ignores the incoming result and returns its own proxy, which replaces the black hole. When the VPN doesn't proxy a request, it passes the black hole on unchanged.
-- **VPN registered first.** This happens when the extension is installed, updated or reloaded while the VPN is on. The extension's black hole runs last and wins, so everything is blocked, which fails closed. Turning the VPN off and on registers its filter again, after the extension's.
+- **VPN registered first.** This happens when the extension is installed, updated or reloaded while the VPN is on. The extension's black hole runs last and wins, so everything is blocked, which fails closed. Turning the VPN off and on registers its filter again, after the extension's. After an install or update, the blocked page says this first, until the extension sees traffic through the VPN again.
 
 The extension's filter is always registered, and only its answer changes with the switch. Turning the kill switch on or off therefore doesn't change the order.
 

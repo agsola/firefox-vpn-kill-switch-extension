@@ -101,10 +101,15 @@ def main():
         d.install_addon(EXT, temporary=True)
         time.sleep(1)
         results.append(load(d, "4. VPN registered first (fails closed)") == "BLOCKED")
+        results.append("&r=1" in d.current_url)  # page explains the reinstall
         d.uninstall_addon(vpn)
-        d.install_addon(FAKE, temporary=True)
+        vpn = d.install_addon(FAKE, temporary=True)
         time.sleep(1)
         results.append(load(d, "5. ...after turning the VPN off and on") == "VPN")
+        d.uninstall_addon(vpn)
+        time.sleep(1)
+        results.append(load(d, "6. VPN drops again (no reinstall notice)") == "BLOCKED")
+        results.append("&r=1" not in d.current_url)
     finally:
         d.quit()
 
@@ -117,7 +122,7 @@ def main():
     try:
         d.install_addon(EXT, temporary=True)
         time.sleep(2)
-        results.append(load(d, "6. PAC 'PROXY dead; DIRECT', no VPN") == "BLOCKED")
+        results.append(load(d, "7. PAC 'PROXY dead; DIRECT', no VPN") == "BLOCKED")
     finally:
         d.quit()
         server.shutdown()

@@ -54,7 +54,7 @@ The full analysis, with references to Firefox's source code, is in [docs/how-it-
 ## Limitations
 
 - **Private windows** are protected only if you allow the extension there.
-- **Installed or updated while the VPN is on:** the VPN's filter ends up before the extension's, and every page is blocked until you turn the VPN off and on once. It never leaks; it fails closed.
+- **Installed or updated while the VPN is on** (including automatic updates): the VPN's filter ends up before the extension's, and every page is blocked until you turn the VPN off and on once. It never leaks; it fails closed, and the blocked page tells you what to do.
 - **Firefox's own background requests** (updates, remote settings) can fall back to a direct connection when their proxy fails. Your browsing is not affected.
 - Don't set `network.proxy.retry_failed_proxies` to `false` in `about:config`.
 
@@ -70,7 +70,7 @@ npm run lint
 npm run build          # zip for addons.mozilla.org, saved to web-ext-artifacts/
 ```
 
-End-to-end tests run a real headless Firefox. A fake VPN extension sends traffic to a local proxy, and the tests check six cases: VPN on, VPN drops, wrong filter order, and a PAC file with a `DIRECT` fallback.
+End-to-end tests run a real headless Firefox. A fake VPN extension sends traffic to a local proxy, and the tests check seven cases: VPN on, VPN drops, wrong filter order and its fix, and a PAC file with a `DIRECT` fallback.
 
 ```sh
 python3 -m venv .venv && .venv/bin/pip install -r tests/requirements.txt

@@ -1,0 +1,27 @@
+{
+  "categories": [
+    "privacy-security"
+  ],
+  "summary": {
+    "en-US": "Blocks every page that doesn't go through Firefox's built-in VPN, so your real IP doesn't leak when the VPN turns off, pauses or hits its data limit. One switch, no data collection.",
+    "es-ES": "Bloquea toda página que no pase por la VPN integrada de Firefox, para que tu IP real no se filtre si la VPN se apaga, se pausa o llega a su límite de datos. Un solo interruptor, sin recogida de datos."
+  },
+  "description": {
+    "en-US": "Firefox's built-in VPN protects you only while it's on. If it turns off — you reach the monthly data limit, sign out, hit a network error or switch it off by accident — Firefox keeps browsing with your real IP and doesn't warn you.\n\nThis extension is a kill switch: while it's on, pages load only through the VPN. Without the VPN, they don't load at all, and you see a page explaining what happened and how to fix it.\n\n<b>What it does</b>\n<ul><li>Blocks requests before anything leaves the browser, including the DNS lookup</li><li>Turns off WebRTC and DNS prefetching while it's on, since neither goes through the VPN</li><li>Never blocks your local network or the Mozilla services the VPN needs to connect</li><li>Shows when the VPN was last used and how many requests were blocked</li><li>Works on Firefox for desktop and Android</li></ul>\n\n<b>After installing</b>\n1. If the VPN was already on, turn it off and on once.\n2. Allow the extension in private windows (Add-ons → VPN Kill Switch for Firefox → Run in Private Windows). Without it, private windows aren't protected.\n\n<b>Privacy</b>\nNo data collection, no analytics, no remote code. Open source: https://github.com/agsola/firefox-vpn-kill-switch-extension\n\nNot affiliated with or endorsed by Mozilla.",
+    "es-ES": "La VPN integrada de Firefox solo te protege mientras está encendida. Si se apaga —llegas al límite mensual de datos, cierras sesión, hay un error de red o la desactivas sin querer—, Firefox sigue navegando con tu IP real y no te avisa.\n\nEsta extensión es un kill switch: mientras está activada, las páginas solo cargan a través de la VPN. Sin VPN no cargan, y ves una página que explica qué ha pasado y cómo solucionarlo.\n\n<b>Qué hace</b>\n<ul><li>Bloquea las peticiones antes de que nada salga del navegador, incluida la consulta DNS</li><li>Desactiva WebRTC y el prefetch de DNS mientras está activada, porque ninguno de los dos pasa por la VPN</li><li>Nunca bloquea tu red local ni los servicios de Mozilla que la VPN necesita para conectarse</li><li>Muestra cuándo se usó la VPN por última vez y cuántas peticiones se han bloqueado</li><li>Funciona en Firefox para escritorio y Android</li></ul>\n\n<b>Después de instalarla</b>\n1. Si la VPN ya estaba encendida, apágala y enciéndela una vez.\n2. Permite la extensión en ventanas privadas (Complementos → VPN Kill Switch for Firefox → Ejecutar en ventanas privadas). Sin ese permiso, las ventanas privadas no están protegidas.\n\n<b>Privacidad</b>\nNo recoge datos, no tiene analíticas ni carga código remoto. Código abierto: https://github.com/agsola/firefox-vpn-kill-switch-extension\n\nNo está afiliada a Mozilla ni cuenta con su respaldo."
+  },
+  "homepage": {
+    "en-US": "https://github.com/agsola/firefox-vpn-kill-switch-extension"
+  },
+  "support_url": {
+    "en-US": "https://github.com/agsola/firefox-vpn-kill-switch-extension/issues"
+  },
+  "version": {
+    "license": "MIT",
+    "approval_notes": "This extension is a kill switch for Firefox's built-in VPN (IP Protection).\n\nHow it works: background.js registers proxy.onRequest for <all_urls> and returns a dead proxy (http 127.0.0.1:9, followed by null to end the failover chain) for every request. Firefox's built-in VPN registers its own proxy channel filter when it turns on; it runs after ours and replaces the dead proxy with the real VPN proxy. When the VPN is off, requests keep the dead proxy and fail locally, before any DNS lookup. Mozilla infrastructure needed by the VPN (vpn.mozilla.org, Firefox accounts, remote settings, captive portal detection, DoH resolvers, including internal requests to /dns-query) and local network addresses are never blocked.\n\nPermissions:\n- proxy + <all_urls>: the blocking itself.\n- webRequest: onErrorOccurred shows an explanation page for blocked top-level loads; onHeadersReceived (main_frame only) detects that the VPN is in use. Non-blocking, observation only.\n- privacy: sets webRTCIPHandlingPolicy=disable_non_proxied_udp and networkPredictionEnabled=false while on; cleared when off.\n- storage: on/off state.\n\nNo data collection, no remote code, no minification, no build step. To test: install, turn the built-in VPN off and open any site (blocked page appears); turn the VPN on and retry (loads). If the VPN was already on during install, turn it off and on once (documented limitation: filter order). Automated tests: tests/e2e.py in the repository.",
+    "release_notes": {
+      "en-US": "First version on addons.mozilla.org. No longer asks for access to browser tabs; clearer blocked page after an update; the counter only counts requests from tabs; custom DNS-over-HTTPS providers keep working.",
+      "es-ES": "Primera versión en addons.mozilla.org. Ya no pide acceso a las pestañas; página de bloqueo más clara tras una actualización; el contador solo cuenta peticiones de pestañas; los proveedores de DNS sobre HTTPS personalizados siguen funcionando."
+    }
+  }
+}

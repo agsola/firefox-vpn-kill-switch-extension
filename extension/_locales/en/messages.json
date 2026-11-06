@@ -26,6 +26,8 @@
   "blockedStep1Body": { "message": "Use the VPN button in the toolbar or in Firefox's menu." },
   "blockedStep2Title": { "message": "Click “Try again”" },
   "blockedStep2Body": { "message": "If the VPN was already on and pages are still blocked, turn it off and on once." },
+  "reorderedTitle": { "message": "The extension was just installed or updated." },
+  "reorderedBody": { "message": "If the VPN is on, turn it off and on once, then click “Try again”." },
   "retry": { "message": "Try again" },
 
   "welcomeTitle": { "message": "VPN Kill Switch for Firefox" },

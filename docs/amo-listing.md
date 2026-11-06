@@ -1,6 +1,6 @@
 # addons.mozilla.org listing
 
-Texts to paste when submitting or updating the listing. English is the default locale; Spanish goes in the listing's "es-ES" translation.
+Texts to paste when submitting or updating the listing. English is the default locale; Spanish goes in the listing's "es-ES" translation. [`amo-metadata.json`](amo-metadata.json) has the same texts in the format `web-ext sign --amo-metadata` sends to AMO.
 
 ## Basics
 
@@ -79,13 +79,12 @@ No está afiliada a Mozilla ni cuenta con su respaldo.
 ```
 This extension is a kill switch for Firefox's built-in VPN (IP Protection).
 
-How it works: background.js registers proxy.onRequest for <all_urls> and returns a dead proxy (http 127.0.0.1:9, followed by null to end the failover chain) for every request. Firefox's built-in VPN registers its own proxy channel filter when it turns on; it runs after ours and replaces the dead proxy with the real VPN proxy. When the VPN is off, requests keep the dead proxy and fail locally, before any DNS lookup. Mozilla infrastructure needed by the VPN (vpn.mozilla.org, Firefox accounts, remote settings, captive portal detection, DoH resolvers) and local network addresses are never blocked.
+How it works: background.js registers proxy.onRequest for <all_urls> and returns a dead proxy (http 127.0.0.1:9, followed by null to end the failover chain) for every request. Firefox's built-in VPN registers its own proxy channel filter when it turns on; it runs after ours and replaces the dead proxy with the real VPN proxy. When the VPN is off, requests keep the dead proxy and fail locally, before any DNS lookup. Mozilla infrastructure needed by the VPN (vpn.mozilla.org, Firefox accounts, remote settings, captive portal detection, DoH resolvers, including internal requests to /dns-query) and local network addresses are never blocked.
 
 Permissions:
 - proxy + <all_urls>: the blocking itself.
 - webRequest: onErrorOccurred shows an explanation page for blocked top-level loads; onHeadersReceived (main_frame only) detects that the VPN is in use. Non-blocking, observation only.
 - privacy: sets webRTCIPHandlingPolicy=disable_non_proxied_udp and networkPredictionEnabled=false while on; cleared when off.
-- tabs: open the welcome page, show the blocked page in the blocked tab.
 - storage: on/off state.
 
 No data collection, no remote code, no minification, no build step. To test: install, turn the built-in VPN off and open any site (blocked page appears); turn the VPN on and retry (loads). If the VPN was already on during install, turn it off and on once (documented limitation: filter order). Automated tests: tests/e2e.py in the repository.

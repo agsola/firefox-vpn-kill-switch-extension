@@ -26,6 +26,8 @@
   "blockedStep1Body": { "message": "Usa el botón «VPN» de la barra de herramientas o del menú de Firefox." },
   "blockedStep2Title": { "message": "Pulsa «Reintentar»" },
   "blockedStep2Body": { "message": "Si la VPN ya estaba activada y sigue bloqueando, apágala y enciéndela una vez." },
+  "reorderedTitle": { "message": "La extensión se acaba de instalar o actualizar." },
+  "reorderedBody": { "message": "Si la VPN está encendida, apágala y enciéndela una vez, y pulsa «Reintentar»." },
   "retry": { "message": "Reintentar" },
 
   "welcomeTitle": { "message": "VPN Kill Switch for Firefox" },
