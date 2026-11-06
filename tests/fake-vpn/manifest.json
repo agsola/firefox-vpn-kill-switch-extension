@@ -1,0 +1,8 @@
+{
+  "manifest_version": 2,
+  "name": "Fake VPN (test)",
+  "version": "1.0",
+  "permissions": ["proxy", "<all_urls>"],
+  "background": { "scripts": ["bg.js"] },
+  "browser_specific_settings": { "gecko": { "id": "fake-vpn@test" } }
+}

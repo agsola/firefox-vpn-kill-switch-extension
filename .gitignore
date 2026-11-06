@@ -1,0 +1,12 @@
+# Dependencies and build output
+node_modules/
+web-ext-artifacts/
+.venv/
+__pycache__/
+*.xpi
+*.zip
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/

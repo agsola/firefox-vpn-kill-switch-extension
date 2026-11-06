@@ -1,0 +1,99 @@
+:root {
+  --paper: #f7f5fc;
+  --surface: #ffffff;
+  --ink: #221a33;
+  --muted: #6e6882;
+  --line: #e4dff0;
+  --safe: #0f9d6b;
+  --safe-soft: #e3f5ee;
+  --cut: #d7264f;
+  --cut-soft: #fde8ee;
+  --amber: #8a5a00;
+  --amber-soft: #fff3d6;
+  --off: #a49fb3;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #17131f;
+    --surface: #211b2c;
+    --ink: #f3f0fa;
+    --muted: #a9a3b8;
+    --line: #362e45;
+    --safe: #3ccf96;
+    --safe-soft: #173329;
+    --cut: #ff5c7f;
+    --cut-soft: #3a1823;
+    --amber: #f2c25c;
+    --amber-soft: #352a12;
+    --off: #6c6680;
+  }
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1 {
+  font-size: clamp(24px, 4.5vw, 32px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+p { margin: 0 0 12px; }
+a { color: inherit; }
+
+.btn {
+  font: inherit;
+  font-weight: 650;
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 20px;
+  cursor: pointer;
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn:hover { filter: brightness(1.15); }
+.btn-quiet {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+:focus-visible { outline: 3px solid var(--safe); outline-offset: 2px; }
+
+/* Full pages (blocked and welcome) */
+.page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 56px 16px 48px;
+}
+.art { display: block; width: 100%; max-width: 420px; height: auto; margin: 0 0 32px; }
+.lead { font-size: 17px; color: var(--muted); max-width: 52ch; }
+.steps { list-style: none; counter-reset: s; padding: 0; margin: 28px 0; }
+.steps li {
+  counter-increment: s;
+  position: relative;
+  padding: 0 0 18px 44px;
+}
+.steps li::before {
+  content: counter(s);
+  position: absolute; left: 0; top: -2px;
+  width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-weight: 700; font-size: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+.steps strong { display: block; }
+.steps span { color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; margin-top: 8px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .spark { animation: flicker 1.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes flicker { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+}
+[hidden] { display: none !important; }

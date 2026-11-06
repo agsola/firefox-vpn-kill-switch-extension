@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="blockedHeading"></title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .host {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      font-weight: 650;
+      color: var(--cut);
+      background: var(--cut-soft);
+      border-radius: 8px;
+      padding: 4px 10px;
+      margin: 0 0 4px;
+    }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- Browser → unplugged cable → internet -->
+    <svg class="art" viewBox="0 0 420 150" role="img" data-i18n-label="blockedArt">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- browser -->
+        <rect x="8" y="30" width="112" height="88" rx="12" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+        <path d="M8 52h112" stroke="var(--ink)" stroke-width="3"/>
+        <circle cx="24" cy="41" r="3.5" fill="var(--cut)" stroke="none"/>
+        <circle cx="36" cy="41" r="3.5" fill="var(--off)" stroke="none"/>
+        <circle cx="48" cy="41" r="3.5" fill="var(--off)" stroke="none"/>
+        <path d="M26 72h56M26 86h72M26 100h40" stroke="var(--line)" stroke-width="6"/>
+        <!-- cable and plug -->
+        <path d="M120 74h28c8 0 10 6 18 6h4" stroke="var(--ink)" stroke-width="4"/>
+        <rect x="170" y="68" width="18" height="24" rx="4" fill="var(--ink)" stroke="none"/>
+        <path d="M188 74h9M188 86h9" stroke="var(--ink)" stroke-width="3.5"/>
+        <!-- cable and socket -->
+        <path d="M312 74h-28c-8 0-10 6-18 6h-6" stroke="var(--ink)" stroke-width="4"/>
+        <rect x="228" y="66" width="32" height="28" rx="6" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+        <path d="M236 74h6M236 86h6" stroke="var(--ink)" stroke-width="3.5"/>
+        <!-- spark -->
+        <g class="spark" stroke="var(--cut)" stroke-width="3.5">
+          <path d="M212 50v12M212 98v12M199 57l5 8M225 57l-5 8M199 103l5-8M225 103l-5-8"/>
+        </g>
+        <!-- internet -->
+        <circle cx="356" cy="74" r="44" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+        <ellipse cx="356" cy="74" rx="18" ry="44" stroke="var(--ink)" stroke-width="2.5"/>
+        <path d="M312 74h88M318 52h76M318 96h76" stroke="var(--ink)" stroke-width="2.5"/>
+      </g>
+    </svg>
+
+    <h1 data-i18n="blockedHeading"></h1>
+    <p class="host" id="host"></p>
+    <p class="lead" data-i18n="blockedLead"></p>
+
+    <ol class="steps">
+      <li><strong data-i18n="blockedStep1Title"></strong><span data-i18n="blockedStep1Body"></span></li>
+      <li><strong data-i18n="blockedStep2Title"></strong><span data-i18n="blockedStep2Body"></span></li>
+    </ol>
+
+    <div class="actions">
+      <button class="btn" id="retry" data-i18n="retry"></button>
+    </div>
+  </main>
+  <script src="i18n.js"></script>
+  <script src="blocked.js"></script>
+</body>
+</html>

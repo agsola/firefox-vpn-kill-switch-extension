@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { width: 320px; background: var(--paper); }
+    @media (max-width: 600px) { body { width: auto; } }
+
+    .head {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 16px 16px;
+      background: var(--state-soft);
+      transition: background .2s;
+    }
+    body { --state: var(--safe); --state-soft: var(--safe-soft); }
+    body.is-off { --state: var(--off); --state-soft: var(--surface); }
+    body.is-off .head { box-shadow: inset 0 -1px 0 var(--line); }
+
+    .shield { width: 48px; height: 48px; flex: none; }
+    .shield .body { fill: var(--state); transition: fill .2s; }
+    .shield .mark-off { display: none; }
+    body.is-off .shield .mark-on { display: none; }
+    body.is-off .shield .mark-off { display: inline; }
+
+    .title { flex: 1; min-width: 0; }
+    .name { font-size: 12px; color: var(--muted); margin: 0; }
+    #state { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin: 0; line-height: 1.2; }
+
+    .switch {
+      width: 56px; height: 32px; border-radius: 16px; border: 0; padding: 0; flex: none;
+      background: var(--state); position: relative; cursor: pointer;
+      transition: background .2s;
+    }
+    .switch::after {
+      content: ""; position: absolute; top: 3px; left: 3px;
+      width: 26px; height: 26px; border-radius: 50%; background: #fff;
+      box-shadow: 0 1px 2px rgb(0 0 0 / .25);
+      transition: transform .2s;
+    }
+    .switch[aria-checked="true"]::after { transform: translateX(24px); }
+
+    .facts { margin: 0; padding: 6px 16px; }
+    .fact {
+      display: flex; justify-content: space-between; gap: 12px;
+      padding: 9px 0; font-size: 14px;
+    }
+    .fact + .fact { border-top: 1px solid var(--line); }
+    .fact dt { color: var(--muted); }
+    .fact dd { margin: 0; font-weight: 600; text-align: right; }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; background: var(--off); }
+    .dot.ok { background: var(--safe); }
+    .count-hot { color: var(--cut); }
+
+    .warn {
+      margin: 4px 16px 16px;
+      padding: 12px;
+      border-radius: 10px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-size: 13px;
+      display: flex; gap: 10px;
+    }
+    .warn svg { flex: none; margin-top: 1px; }
+    .warn p { margin: 0; }
+    .off-note { margin: 4px 16px 16px; font-size: 13px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="head">
+    <svg class="shield" viewBox="0 0 48 48" aria-hidden="true">
+      <path class="body" d="M24 3 6 10v13c0 11 7.6 19.6 18 22 10.4-2.4 18-11 18-22V10z"/>
+      <path class="mark-on" d="M16 24.5l5.5 5.5L33 18.5" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="mark-off" d="M17.5 17.5l13 13m0-13-13 13" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+    </svg>
+    <div class="title">
+      <p class="name" data-i18n="extName"></p>
+      <p id="state">…</p>
+    </div>
+    <button id="toggle" class="switch" role="switch" aria-checked="false" data-i18n-label="toggleLabel"></button>
+  </header>
+
+  <dl class="facts" id="facts">
+    <div class="fact"><dt data-i18n="factVpn"></dt><dd id="vpn"></dd></div>
+    <div class="fact"><dt data-i18n="factBlocked"></dt><dd id="blocked"></dd></div>
+  </dl>
+  <p class="off-note" id="offNote" data-i18n="offNote" hidden></p>
+
+  <div id="private" class="warn" hidden>
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 21h20z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 10v5M12 18v.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    <p><strong data-i18n="privateTitle"></strong> <span data-i18n="privateBody"></span></p>
+  </div>
+  <script src="i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
