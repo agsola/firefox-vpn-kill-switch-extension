@@ -1,11 +1,11 @@
 {
-  "name": "firefox-vpn-kill-switch",
+  "name": "firefox-vpn-kill-switch-extension",
   "version": "0.1.0",
   "private": true,
   "description": "Blocks all traffic that doesn't go through Firefox's built-in VPN.",
   "license": "MIT",
   "author": "Alberto García",
-  "repository": "github:agsola/firefox-vpn-kill-switch",
+  "repository": "github:agsola/firefox-vpn-kill-switch-extension",
   "scripts": {
     "start": "web-ext run --source-dir extension",
     "start:android": "web-ext run --source-dir extension -t firefox-android",

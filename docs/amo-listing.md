@@ -11,8 +11,8 @@ Texts to paste when submitting or updating the listing. English is the default l
 | Categories | Privacy & Security |
 | Platforms | Firefox, Firefox for Android |
 | Tags | vpn, kill switch, privacy, ip leak, proxy |
-| Homepage | https://github.com/agsola/firefox-vpn-kill-switch |
-| Support site | https://github.com/agsola/firefox-vpn-kill-switch/issues |
+| Homepage | https://github.com/agsola/firefox-vpn-kill-switch-extension |
+| Support site | https://github.com/agsola/firefox-vpn-kill-switch-extension/issues |
 | License | MIT |
 | Privacy policy | Paste the English section of [PRIVACY.md](../PRIVACY.md) (and the Spanish one in the es-ES translation) |
 | Source code | Not needed: the package isn't minified, bundled or transpiled |
@@ -41,7 +41,7 @@ This extension is a kill switch: while it's on, pages load only through the VPN.
 2. Allow the extension in private windows (Add-ons → Kill Switch for Firefox VPN → Run in Private Windows). Without it, private windows aren't protected.
 
 <b>Privacy</b>
-No data collection, no analytics, no remote code. Open source: https://github.com/agsola/firefox-vpn-kill-switch
+No data collection, no analytics, no remote code. Open source: https://github.com/agsola/firefox-vpn-kill-switch-extension
 
 Not affiliated with or endorsed by Mozilla.
 ```
@@ -69,7 +69,7 @@ Esta extensión es un kill switch: mientras está activada, las páginas solo ca
 2. Permite la extensión en ventanas privadas (Complementos → Kill Switch for Firefox VPN → Ejecutar en ventanas privadas). Sin ese permiso, las ventanas privadas no están protegidas.
 
 <b>Privacidad</b>
-No recoge datos, no tiene analíticas ni carga código remoto. Código abierto: https://github.com/agsola/firefox-vpn-kill-switch
+No recoge datos, no tiene analíticas ni carga código remoto. Código abierto: https://github.com/agsola/firefox-vpn-kill-switch-extension
 
 No está afiliada a Mozilla ni cuenta con su respaldo.
 ```

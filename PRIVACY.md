@@ -21,7 +21,7 @@ Kill Switch for Firefox VPN doesn't collect, store, sell or send any personal da
 
 ## Contact
 
-Questions: open an issue at https://github.com/agsola/firefox-vpn-kill-switch/issues.
+Questions: open an issue at https://github.com/agsola/firefox-vpn-kill-switch-extension/issues.
 
 ---
 
@@ -48,4 +48,4 @@ Kill Switch for Firefox VPN no recoge, guarda, vende ni envía ningún dato pers
 
 ## Contacto
 
-Dudas: abre un issue en https://github.com/agsola/firefox-vpn-kill-switch/issues.
+Dudas: abre un issue en https://github.com/agsola/firefox-vpn-kill-switch-extension/issues.
