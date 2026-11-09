@@ -28,7 +28,14 @@ function render(st) {
   blocked.classList.toggle("count-hot", st.blocked > 0);
 
   $("private").hidden = st.privateAllowed;
+  $("showCount").checked = st.showCount;
+  $("blockedRow").hidden = !st.showCount;
 }
+
+$("showCount").addEventListener("change", async (e) => {
+  await browser.runtime.sendMessage({ type: "showCount", value: e.target.checked });
+  render(await browser.runtime.sendMessage({ type: "get" }));
+});
 
 $("toggle").addEventListener("click", async () => {
   const enabled = $("toggle").getAttribute("aria-checked") !== "true";

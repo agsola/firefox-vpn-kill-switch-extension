@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- New option in the popup to hide the number of blocked requests.
+- Blocked internal Firefox requests are logged to the extension's console, to help troubleshoot.
+
 ## 0.3.0 (2026-11-06)
 
 First version on [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/vpn-kill-switch-for-firefox/).

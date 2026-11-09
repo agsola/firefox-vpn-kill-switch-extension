@@ -14,6 +14,7 @@
   "vpnSeconds": { "message": "En uso hace $N$ s", "placeholders": { "n": { "content": "$1" } } },
   "vpnMinutes": { "message": "En uso hace $N$ min", "placeholders": { "n": { "content": "$1" } } },
   "vpnHours": { "message": "En uso hace $N$ h", "placeholders": { "n": { "content": "$1" } } },
+  "optShowCount": { "message": "Mostrar el número de bloqueos" },
   "offNote": { "message": "Las páginas pueden cargar sin VPN y mostrar tu IP real." },
   "privateTitle": { "message": "Las ventanas privadas no están protegidas." },
   "privateBody": { "message": "Ve a Complementos → VPN Kill Switch for Firefox y activa «Ejecutar en ventanas privadas»." },

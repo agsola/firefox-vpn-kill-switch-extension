@@ -57,10 +57,12 @@ const state = {
   // already on, its filter now runs before ours and everything is blocked
   // until the VPN restarts; the blocked page then says so first.
   reordered: false,
+  showCount: true, // show the number of blocked requests on the icon and popup
 };
 
-const ready = browser.storage.local.get({ enabled: true }).then((stored) => {
+const ready = browser.storage.local.get({ enabled: true, showCount: true }).then((stored) => {
   state.enabled = stored.enabled;
+  state.showCount = stored.showCount;
   applyPrivacySettings();
   updateUi();
 });
@@ -129,9 +131,14 @@ browser.webRequest.onHeadersReceived.addListener(
 
 browser.webRequest.onErrorOccurred.addListener(
   (d) => {
+    if (!isBlackhole(d.proxyInfo)) return;
     // Only count requests from tabs: Firefox's own background requests would
-    // make the number grow even when you aren't browsing.
-    if (!isBlackhole(d.proxyInfo) || d.tabId < 0) return;
+    // make the number grow even when you aren't browsing. They're logged to
+    // the extension's console (about:debugging → Inspect) for troubleshooting.
+    if (d.tabId < 0) {
+      console.info("[kill-switch] blocked internal request:", d.method, d.url.split("?")[0]);
+      return;
+    }
     state.blocked++;
     updateBadge();
     if (d.type === "main_frame") {
@@ -170,7 +177,8 @@ async function applyPrivacySettings() {
 function updateBadge() {
   const action = browser.browserAction;
   try {
-    action.setBadgeText?.({ text: state.enabled && state.blocked ? String(Math.min(state.blocked, 999)) : "" });
+    const show = state.enabled && state.showCount && state.blocked;
+    action.setBadgeText?.({ text: show ? String(Math.min(state.blocked, 999)) : "" });
     action.setBadgeBackgroundColor?.({ color: "#d7264f" });
   } catch {}
 }
@@ -200,11 +208,17 @@ browser.runtime.onMessage.addListener(async (msg) => {
         enabled: state.enabled,
         blocked: state.blocked,
         vpnSeenAt: state.vpnSeenAt,
+        showCount: state.showCount,
         privateAllowed: await browser.extension.isAllowedIncognitoAccess(),
       };
     case "set":
       await setEnabled(msg.enabled);
       return { enabled: state.enabled };
+    case "showCount":
+      state.showCount = !!msg.value;
+      await browser.storage.local.set({ showCount: state.showCount });
+      updateBadge();
+      return { showCount: state.showCount };
   }
 });
 
