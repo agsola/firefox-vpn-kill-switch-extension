@@ -1,6 +1,6 @@
 {
   "name": "firefox-vpn-kill-switch-extension",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "Blocks all traffic that doesn't go through Firefox's built-in VPN.",
   "license": "MIT",
@@ -11,9 +11,11 @@
     "start:android": "web-ext run --source-dir extension -t firefox-android",
     "lint": "web-ext lint --source-dir extension",
     "build": "web-ext build --source-dir extension --overwrite-dest",
-    "test": "python3 tests/e2e.py"
+    "test": "python3 tests/e2e.py",
+    "screenshots": "node scripts/screenshots.mjs"
   },
   "devDependencies": {
-    "web-ext": "^8.0.0"
+    "web-ext": "^8.0.0",
+    "playwright": "^1.58.0"
   }
 }

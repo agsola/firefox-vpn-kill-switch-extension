@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.4.0 (2026-11-09)
 
 - New option in the popup to hide the number of blocked requests.
 - Blocked internal Firefox requests are logged to the extension's console, to help troubleshoot.

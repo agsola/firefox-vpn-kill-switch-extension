@@ -15,6 +15,7 @@ tests/
   e2e.py              end-to-end tests in a real headless Firefox
   fake-vpn/           test extension that simulates the built-in VPN
 docs/                 technical notes, store listing, screenshots
+scripts/screenshots.mjs  renders docs/screenshots/
 ```
 
 ## Ground rules
@@ -33,5 +34,6 @@ docs/                 technical notes, store listing, screenshots
 ## Releasing
 
 1. Update `version` in `extension/manifest.json` and `package.json`, and add an entry to `CHANGELOG.md`.
-2. `npm run lint && npm run build`.
-3. Upload `web-ext-artifacts/*.zip` to addons.mozilla.org. Listing texts and reviewer notes are in [docs/amo-listing.md](docs/amo-listing.md).
+2. If the UI changed, `npm run screenshots` (needs Playwright's Chromium: `npx playwright install chromium`, or set `CHROMIUM_PATH`).
+3. `npm run lint && npm run build`.
+4. Upload `web-ext-artifacts/*.zip` to addons.mozilla.org. Listing texts and reviewer notes are in [docs/amo-listing.md](docs/amo-listing.md).
