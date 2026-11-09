@@ -34,8 +34,8 @@ This extension is a kill switch: with it on, pages only load through the VPN. Wi
 
 ## Install
 
-- **GitHub (signed by Mozilla):** download the `.xpi` from the [latest release](https://github.com/agsola/firefox-vpn-kill-switch-extension/releases/latest) and open it with Firefox. On Android, open the file from Firefox's downloads.
-- **Firefox Add-ons:** coming soon.
+- **[Firefox Add-ons](https://addons.mozilla.org/firefox/addon/vpn-kill-switch-for-firefox/)** (recommended): one click, with automatic updates. Works on desktop and Android.
+- **GitHub:** download the `.xpi` from the [latest release](https://github.com/agsola/firefox-vpn-kill-switch-extension/releases/latest) and open it with Firefox. It's the same file Mozilla signed for the store, and it updates from the store too.
 - **From source (temporary, for testing):** open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on…** and select `extension/manifest.json`. Firefox removes it when it restarts.
 
 After installing:

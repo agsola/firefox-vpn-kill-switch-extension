@@ -34,8 +34,8 @@ Esta extensión es un kill switch: con ella activada, las páginas solo cargan a
 
 ## Instalación
 
-- **GitHub (firmada por Mozilla):** descarga el `.xpi` de la [última versión](https://github.com/agsola/firefox-vpn-kill-switch-extension/releases/latest) y ábrelo con Firefox. En Android, ábrelo desde las descargas de Firefox.
-- **Complementos de Firefox:** próximamente.
+- **[Complementos de Firefox](https://addons.mozilla.org/firefox/addon/vpn-kill-switch-for-firefox/)** (recomendado): un clic, con actualizaciones automáticas. Funciona en escritorio y Android.
+- **GitHub:** descarga el `.xpi` de la [última versión](https://github.com/agsola/firefox-vpn-kill-switch-extension/releases/latest) y ábrelo con Firefox. Es el mismo archivo que Mozilla firmó para la tienda, y también se actualiza desde ella.
 - **Desde el código (temporal, para pruebas):** abre `about:debugging#/runtime/this-firefox`, pulsa **Cargar complemento temporal…** y elige `extension/manifest.json`. Firefox la quita al reiniciarse.
 
 Después de instalarla:

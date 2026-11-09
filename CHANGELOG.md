@@ -2,7 +2,7 @@
 
 ## 0.3.0 (2026-11-06)
 
-First version on addons.mozilla.org.
+First version on [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/vpn-kill-switch-for-firefox/).
 
 - No longer asks for access to browser tabs: it was never needed.
 - After an install or update, the blocked page explains that the VPN must be turned off and on once if it was already on.
